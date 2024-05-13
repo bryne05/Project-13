@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Norican");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
+
+:root {
+  --white-color: #ffffff;
+  --green-color: #57b957;
+  --gray-color: #b2b3ba;
+  --black-color: #182345;
+  --gray-color2: #97a2a6;
+
+  --font-1: "Norican", cursive;
+  --font-2: "Roboto", sans-serif;
+  --font-3: "Montserrat", sans-serif;
+  --font-4: "Open Sans", sans-serif;
+}
+
+.font-1 {
+  font-family: var(--font-1);
+}
+
+.font-2 {
+  font-family: var(--font-2);
+}
+
+.font-3 {
+  font-family: var(--font-3);
+}
+
+.font-4 {
+  font-family: var(--font-4);
+}
+
+.white-color {
+  color: var(--white-color);
+}
+
+.green-color {
+  color: var(--green-color);
+}
+
+.gray-color {
+  color: var(--gray-color);
+}
+
+.gray-color2 {
+  color: var(--gray-color2);
+}
+
+.black-color {
+  color: var(--black-color);
+}
+
+.btn-green {
+  background-color: var(--green-color);
+  font-family: var(--font-4);
+  font-weight: 800;
+  color: var(--white-color);
+  width: fit-content;
+  padding: 15px 50px 15px 50px;
+  border: 1px solid var(--green-color);
+  border-radius: 30px;
+  font-size: clamp(10px, 14px, 3vw);
+  transition: 0.3s ease-in-out;
+}
+
+.btn-green:hover {
+  background-color: var(--white-color);
+  color: var(--green-color);
+}
+
+.line {
+  display: inline-block;
+  width: 50px;
+  height: 1px;
+  background-color: #47b957;
+  margin-right: 10px;
+  vertical-align: middle;
+}
