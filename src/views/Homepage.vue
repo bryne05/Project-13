@@ -4,6 +4,8 @@ import OurServices from "../components/ourServices.vue";
 import SuccessStories from "../components/SuccessStories.vue";
 import KeepRunning from "../components/KeepRunning.vue";
 import OurQualification from "../components/OurQualification.vue";
+import WorkCounter from "../components/WorkCounter.vue";
+import OurBlog from "../components/OurBlog.vue";
 </script>
 
 <template>
@@ -87,6 +89,8 @@ import OurQualification from "../components/OurQualification.vue";
   <SuccessStories />
   <KeepRunning />
   <OurQualification />
+  <WorkCounter />
+  <OurBlog />
 </template>
 
 <style scoped>

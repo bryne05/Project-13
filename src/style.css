@@ -70,6 +70,24 @@
   color: var(--green-color);
 }
 
+.btn-gray {
+  background-color: #d7d9e1;
+  font-family: var(--font-4);
+  font-weight: 800;
+  color: var(--black-color);
+  width: fit-content;
+  padding: 15px 25px 15px 25px;
+
+  border-radius: 30px;
+  font-size: clamp(10px, 14px, 3vw);
+  transition: 0.3s ease-in-out;
+}
+
+.btn-gray:hover {
+  background-color: var(--green-color);
+  color: var(--white-color);
+}
+
 .line {
   display: inline-block;
   width: 50px;

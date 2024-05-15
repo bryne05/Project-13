@@ -45,8 +45,8 @@
       </div>
     </div>
 
-    <div class="row" style="margin-top: 100px">
-      <div class="col-lg-4">
+    <div class="row d-flex align-items-center" style="margin-top: 100px">
+      <div class="col-xxl-4 col-xl-6 col-12">
         <div class="details d-flex">
           <div class="icon"></div>
 
@@ -58,7 +58,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-xxl-4 col-xl-6 col-12">
         <div class="details d-flex">
           <div class="icon"></div>
 
@@ -70,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-xxl-4 col-xl-6 col-12">
         <div class="details d-flex">
           <div class="icon"></div>
 
@@ -124,7 +124,7 @@ button svg {
   fill: white;
 }
 .details {
-  width: 100%;
+  width: 400px;
   transition: 0.5s;
 }
 .icon {
@@ -149,5 +149,23 @@ button svg {
 
 .details:hover .content {
   transform: translateX(0px) translateY(0px);
+}
+
+.col-xxl-4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+  .choose-us-pic {
+    width: 700px !important;
+    height: 400px;
+  }
+}
+
+@media (max-width: 550px) {
+  button {
+    margin-left: 270px;
+  }
 }
 </style>
