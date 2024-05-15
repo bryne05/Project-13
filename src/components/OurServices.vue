@@ -1,7 +1,7 @@
 <template>
   <section class="">
     <div class="container-fluid">
-      <div class="row row-one justify-content-center bg-light">
+      <div class="row row-one justify-content-center">
         <div class="col-lg-6 text-center">
           <h4 class="font-1 green-color">
             <span class="line"></span> What We Do <span class="line"></span>
@@ -76,6 +76,7 @@
 .row-one {
   padding-top: 100px;
   padding-bottom: 100px;
+  background-color: #edf0f3;
 }
 
 .row-two {

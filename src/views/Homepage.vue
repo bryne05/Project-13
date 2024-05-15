@@ -1,6 +1,9 @@
 <script setup>
 import SomeStory from "../components/SomeStory.vue";
-import OurServices from "../components/OurServices.vue";
+import OurServices from "../components/ourServices.vue";
+import SuccessStories from "../components/SuccessStories.vue";
+import KeepRunning from "../components/KeepRunning.vue";
+import OurQualification from "../components/OurQualification.vue";
 </script>
 
 <template>
@@ -81,6 +84,9 @@ import OurServices from "../components/OurServices.vue";
 
   <SomeStory />
   <OurServices />
+  <SuccessStories />
+  <KeepRunning />
+  <OurQualification />
 </template>
 
 <style scoped>
