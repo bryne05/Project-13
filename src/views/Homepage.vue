@@ -8,9 +8,11 @@ import WorkCounter from "../components/WorkCounter.vue";
 import OurBlog from "../components/OurBlog.vue";
 import WriteMessage from "../components/WriteMessage.vue";
 import Footer from "../components/Footer.vue";
+import NavBar from "../components/NavBar.vue";
 </script>
 
 <template>
+  <NavBar />
   <section id="hero">
     <div
       id="carouselExampleControlsNoTouching"
