@@ -3,7 +3,7 @@
   <section id="running">
     <div class="container">
       <div class="row justify-content-start">
-        <div class="col-7">
+        <div class="col-lg-7 col-sm-12">
           <h4 class="font-1 green-color">
             <span class="line"></span> Keep Running
           </h4>
@@ -25,11 +25,10 @@
 </template>
 
 <style scoped>
-
 #running {
   background-image: url(../assets/parallax.jpg);
   background-size: cover;
-  background-color: rgba(23, 27, 39, .9);
+  background-color: rgba(23, 27, 39, 0.9);
   background-blend-mode: overlay;
 }
 
@@ -37,9 +36,8 @@ h1 {
   font-size: clamp(35px, 50px, 3vw) !important;
 }
 
-.col-7 {
+.col-lg-7 {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-
 </style>

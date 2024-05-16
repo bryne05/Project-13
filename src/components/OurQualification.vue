@@ -1,5 +1,39 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const showPopup = ref(false);
+const videoUrl = "https://www.youtube.com/embed/CVuVlk2E_e4";
+
+const openPopup = () => {
+  showPopup.value = true;
+};
+
+const closePopup = () => {
+  showPopup.value = false;
+};
+</script>
 <template>
+  <div v-if="showPopup" class="popup-overlay">
+    <div class="btn-container">
+      <button @click="closePopup" id="close-btn" class="close-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="32"
+          fill="#ffffff"
+          class="bi bi-x-lg"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+          />
+        </svg>
+      </button>
+      <div class="popup-content">
+        <iframe :src="videoUrl" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-12">
@@ -28,7 +62,7 @@
         class="col-lg-6 col-12 d-flex justify-content-center position-relative"
       >
         <div class="choose-us-pic"></div>
-        <button>
+        <button @click="openPopup" class="green2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="bi bi-play-btn"
@@ -48,7 +82,9 @@
     <div class="row d-flex align-items-center" style="margin-top: 100px">
       <div class="col-xxl-4 col-xl-6 col-12">
         <div class="details d-flex">
-          <div class="icon"></div>
+          <div class="icon d-flex justify-content-center align-items-center">
+            <div class="icon-container-1"></div>
+          </div>
 
           <div class="content pt-2 pb-2">
             <h5 class="font-3 black-color"><b>Nutrition Strategies</b></h5>
@@ -60,7 +96,9 @@
       </div>
       <div class="col-xxl-4 col-xl-6 col-12">
         <div class="details d-flex">
-          <div class="icon"></div>
+          <div class="icon d-flex justify-content-center align-items-center">
+            <div class="icon-container-2"></div>
+          </div>
 
           <div class="content pt-2 pb-2">
             <h5 class="font-3 black-color"><b>Individual Coaching</b></h5>
@@ -72,7 +110,9 @@
       </div>
       <div class="col-xxl-4 col-xl-6 col-12">
         <div class="details d-flex">
-          <div class="icon"></div>
+          <div class="icon d-flex justify-content-center align-items-center">
+            <div class="icon-container-3"></div>
+          </div>
 
           <div class="content pt-2 pb-2">
             <h5 class="font-3 black-color"><b>Certified Company</b></h5>
@@ -86,6 +126,45 @@
   </div>
 </template>
 <style scoped>
+iframe {
+  width: 50vw;
+  height: 60vh;
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: end;
+}
+#close-btn {
+  margin-top: -20px !important;
+  padding: 0px !important;
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  border: 3px solid white;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+}
 .container {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -103,7 +182,7 @@ h5 {
 h5:hover {
   color: #57b957;
 }
-button {
+.green2 {
   position: absolute;
   background-color: #57b957;
   border: none;
@@ -114,11 +193,11 @@ button {
   margin-top: 350px !important;
 }
 
-button:hover {
+.green2:hover {
   opacity: 0.6;
 }
 
-button svg {
+.green2 svg {
   width: 50px;
   height: 50px;
   fill: white;
@@ -133,6 +212,40 @@ button svg {
   height: auto;
   transition: 0.5s;
 }
+
+.icon-container-1 {
+  background-image: url(../assets/apple-green.png);
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+}
+
+.details:hover .icon-container-1 {
+  background-image: url(../assets/apple-white.png);
+}
+
+.icon-container-2 {
+  background-image: url(../assets/treadmill-green.png);
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+}
+
+.details:hover .icon-container-2 {
+  background-image: url(../assets/treadmill-white.png);
+}
+
+.icon-container-3 {
+  background-image: url(../assets/certified-green.png);
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+}
+
+.details:hover .icon-container-3 {
+  background-image: url(../assets/certified-white.png);
+}
+
 .content {
   padding-left: 5px;
   transform: translateX(13px) translateY(-10px);

@@ -56,7 +56,7 @@ onMounted(() => {
       </div>
 
       <div
-        class="col-lg-5 col-12 d-flex justify-content-center align-items-start flex-column"
+        class="col-lg-5 col-12 d-flex justify-content-center align-items-start flex-column stories"
         style="margin-left: 30px"
       >
         <h4 class="font-1 green-color">
@@ -157,6 +157,11 @@ p {
   margin-left: 600px;
 }
 
+@media (max-width: 1200px) {
+  .stories {
+    width: 600px;
+  }
+}
 @media (max-width: 800px) {
   .quote-pic {
     display: none;
@@ -167,11 +172,9 @@ p {
   }
 }
 
-@media (max-width:650px) {
-  .col-lg-5{
+@media (max-width: 650px) {
+  .col-lg-5 {
     width: 400px;
   }
-
-  
 }
 </style>

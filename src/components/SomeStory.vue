@@ -1,4 +1,43 @@
+<script setup>
+import { ref } from "vue";
+
+const showPopup = ref(false);
+const videoUrl = "https://www.youtube.com/embed/nfP5N9Yc72A";
+
+const openPopup = () => {
+  showPopup.value = true;
+};
+
+const closePopup = () => {
+  showPopup.value = false;
+};
+</script>
 <template>
+     <div v-if="showPopup" class="popup-overlay">
+              <div class="btn-container">
+                <button @click="closePopup" class="close-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="32"
+                    fill="#ffffff"
+                    class="bi bi-x-lg"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+                    />
+                  </svg>
+                </button>
+                <div class="popup-content">
+                  <iframe
+                    :src="videoUrl"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
   <section id="story">
     <div class="container">
       <div class="row">
@@ -32,8 +71,27 @@
             </a>
           </ul>
 
-          <div class="col-12 mt-5">
+          <div
+            class="col-12 mt-5 d-flex justify-content-around align-items-center"
+          >
             <button class="btn-green">Get Started</button>
+            <div class="border-span"></div>
+
+            <button class="play" @click="openPopup">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="bi bi-play-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"
+                />
+              </svg>
+            </button>
+
+            <h6 class="font-4 black-color">Watch Intro Video</h6>
+
+         
           </div>
         </div>
 
@@ -47,6 +105,74 @@
 </template>
 
 <style scoped>
+iframe {
+  width: 50vw;
+  height: 60vh;
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: end;
+}
+
+.close-btn {
+  margin-top: -20px;
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  border: 3px solid white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.play {
+  width: 70px;
+  height: 70px;
+  border: none;
+  background-color: #ecf0f6 !important;
+  border-radius: 50% !important;
+  transition: 0.4s ease-in-out;
+}
+
+.play svg {
+  width: 40px;
+  height: 40px;
+  fill: black;
+  transition: 0.4s ease-in-out;
+}
+
+.play:hover {
+  background-color: #47b957 !important;
+}
+
+button.play:hover svg {
+  fill: white;
+}
+.border-span {
+  height: 30px;
+
+  border-right: 1px solid gray;
+}
 .row {
   padding-top: 100px;
   padding-bottom: 100px;
