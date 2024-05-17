@@ -5,6 +5,7 @@ import WorkCounter from "../components/WorkCounter.vue";
 import SuccessStories from "../components/SuccessStories.vue";
 import KeepRunning from "../components/KeepRunning.vue";
 import WriteMessage from "../components/WriteMessage.vue";
+import Footer from "../components/Footer.vue";
 </script>
 <template>
   <NavBar />
@@ -77,6 +78,7 @@ import WriteMessage from "../components/WriteMessage.vue";
   </section>
 
   <WriteMessage />
+  <Footer />
 </template>
 <style scoped>
 #hero .row {

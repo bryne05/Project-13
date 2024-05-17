@@ -264,19 +264,21 @@ a {
   }
 }
 .navbar {
-  transition: 0.3s ease;
+  /* transition: 0.3s ease; */
   opacity: 0.9;
 }
-/* Add styles for the scrolled class */
+
 .navbar.scrolled {
   position: fixed;
   width: 100% !important;
-  background-color: white !important; /* Change this to the desired color */
-  transition: opacity 0.5s ease-in, background-color 0.5s ease-in;
+  background-color: white !important;
+  /* transition: opacity 0.5s ease-in, background-color 0.5s ease-in; */
+  box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.1);
   z-index: 9999;
   left: 0;
   opacity: 1;
   padding: 0;
+  box-shadow: rgba(65, 65, 65, 0.472);
 }
 
 .navbar.scrolled .button-cart {
