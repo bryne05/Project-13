@@ -75,12 +75,12 @@
 <style scoped>
 .row-one {
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 180px;
   background-color: #edf0f3;
 }
 
 .row-two {
-  padding-bottom: 100px;
+  transform: translateY(-150px);
 }
 .service-card {
   background-color: white;

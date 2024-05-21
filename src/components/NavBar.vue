@@ -26,35 +26,21 @@
             <div class="collapse-layout">
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <router-link
-                      :class="getActiveClass('/')"
-                      class="nav-link"
-                      to="/"
-                      >Home</router-link
-                    >
+                  <li class="nav-item" :class="{ act: isActive('/') }">
+                    <router-link class="nav-link" to="/">Home</router-link>
                   </li>
-                  <li class="nav-item">
-                    <router-link
-                      :class="getActiveClass('/about')"
-                      class="nav-link"
-                      to="/about"
+                  <li class="nav-item" :class="{ act: isActive('/about') }">
+                    <router-link class="nav-link" to="/about"
                       >About</router-link
                     >
                   </li>
-                  <li class="nav-item">
-                    <router-link
-                      :class="getActiveClass('/services')"
-                      class="nav-link"
-                      to="/services"
+                  <li class="nav-item" :class="{ act: isActive('/services') }">
+                    <router-link class="nav-link" to="/services"
                       >Services</router-link
                     >
                   </li>
-                  <li class="nav-item">
-                    <router-link
-                      :class="getActiveClass('/contact')"
-                      class="nav-link"
-                      to="/contact"
+                  <li class="nav-item" :class="{ act: isActive('/contact') }">
+                    <router-link class="nav-link" to="/contact"
                       >Contact Us</router-link
                     >
                   </li>
@@ -63,7 +49,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-xl-3 col-12">
           <div
             class="button-cart d-flex justify-content-center align-items-center"
@@ -85,40 +70,25 @@
             <div class="divider"></div>
             <button class="btn-green">(0121) 268 3610</button>
           </div>
-
           <div class="button-nav">
             <div class="collapse-layout">
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <router-link
-                      :class="getActiveClass('/')"
-                      class="nav-link"
-                      to="/"
-                      >Home</router-link
-                    >
+                  <li class="nav-item" :class="{ act: isActive('/') }">
+                    <router-link class="nav-link" to="/">Home</router-link>
                   </li>
-                  <li class="nav-item">
-                    <router-link
-                      :class="getActiveClass('/about')"
-                      class="nav-link"
-                      to="/about"
+                  <li class="nav-item" :class="{ act: isActive('/about') }">
+                    <router-link class="nav-link" to="/about"
                       >About</router-link
                     >
                   </li>
-                  <li class="nav-item">
-                    <router-link
-                      :class="getActiveClass('/services')"
-                      class="nav-link"
-                      to="/services"
+                  <li class="nav-item" :class="{ act: isActive('/services') }">
+                    <router-link class="nav-link" to="/services"
                       >Services</router-link
                     >
                   </li>
-                  <li class="nav-item">
-                    <router-link
-                      :class="getActiveClass('/contact')"
-                      class="nav-link"
-                      to="/contact"
+                  <li class="nav-item" :class="{ act: isActive('/contact') }">
+                    <router-link class="nav-link" to="/contact"
                       >Contact Us</router-link
                     >
                   </li>
@@ -150,19 +120,18 @@ onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 
-// Get the current route
 const route = useRoute();
 
-// Method to get the active class dynamically
-const getActiveClass = (path) => {
-  return route.path === path ? "nav-link act" : "nav-link";
+const isActive = (path) => {
+  return route.path === path;
 };
 </script>
 
 <style scoped>
-.act {
-  color: #57b957 !important;
+.act .nav-link {
+  color: #57b957;
 }
+
 .nav-item {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
@@ -264,7 +233,6 @@ a {
   }
 }
 .navbar {
-  /* transition: 0.3s ease; */
   opacity: 0.9;
 }
 
@@ -272,7 +240,7 @@ a {
   position: fixed;
   width: 100% !important;
   background-color: white !important;
-  /* transition: opacity 0.5s ease-in, background-color 0.5s ease-in; */
+  transition: opacity 0.3s ease-in, background-color 0.3s ease-in;
   box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.1);
   z-index: 9999;
   left: 0;
@@ -291,12 +259,26 @@ a {
   justify-content: end;
 }
 
+.navbar.scrolled .act .nav-link {
+  height: 90px;
+  color: white;
+}
+
+.navbar.scrolled .nav-link {
+  height: 90px;
+}
+.navbar.scrolled .act.nav-item {
+  background-color: #57b957 !important;
+  padding: 0;
+  color: red !important;
+  margin: 0;
+  height: 90px !important;
+}
+
 .navbar.scrolled .nav-item {
   padding: 0;
   margin: 0;
   height: 90px;
-  color: white !important;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;

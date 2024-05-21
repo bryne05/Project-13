@@ -280,5 +280,8 @@ h5:hover {
   button {
     margin-left: 270px;
   }
+  .green2 {
+    margin-right: 100px;
+  }
 }
 </style>

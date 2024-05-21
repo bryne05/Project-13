@@ -9,6 +9,22 @@ import OurBlog from "../components/OurBlog.vue";
 import WriteMessage from "../components/WriteMessage.vue";
 import Footer from "../components/Footer.vue";
 import NavBar from "../components/NavBar.vue";
+
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 300;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
@@ -67,28 +83,33 @@ import NavBar from "../components/NavBar.vue";
           </div>
         </div>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleControlsNoTouching"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleControlsNoTouching"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="prev">
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControlsNoTouching"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+      </div>
+
+      <div class="next">
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControlsNoTouching"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
     <div class="go-up">
-      <a href="#hero"
-        ><button class="btn-green-up">
+      <a href="#hero">
+        <button :class="{ scrolled: isScrolled }" class="btn-green-up">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
@@ -118,6 +139,67 @@ import NavBar from "../components/NavBar.vue";
 </template>
 
 <style scoped>
+.carousel-control-prev-icon {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 30px;
+  margin-left: -150px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 30px;
+  margin-right: -150px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.carousel-item .text h3 {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.carousel-item.active h3 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-item .text h1 {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.carousel-item.active h1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-item .text p {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.carousel-item.active p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-item .text button {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.carousel-item.active button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-item {
+  transition: transform 0.5s ease-in-out;
+}
 #hero .carousel-item {
   position: relative;
   height: 100% !important;
@@ -195,16 +277,6 @@ import NavBar from "../components/NavBar.vue";
   }
 }
 
-.btn-green-up {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  background-color: #57b957;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-  animation: scale 2.5s infinite;
-}
-
 @keyframes scale {
   0%,
   100% {
@@ -215,6 +287,7 @@ import NavBar from "../components/NavBar.vue";
     transform: scale(1.1);
   }
 }
+
 .go-up {
   display: absolute;
   position: fixed;
@@ -223,5 +296,20 @@ import NavBar from "../components/NavBar.vue";
   margin-right: 50px;
   margin-bottom: 50px;
   z-index: 999;
+}
+.btn-green-up {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: #57b957;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  animation: scale 2.5s infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.scrolled.btn-green-up {
+  opacity: 1;
 }
 </style>

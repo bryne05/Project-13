@@ -131,7 +131,6 @@
 .row-one {
   padding-top: 100px;
   padding-bottom: 100px;
-  background-color: #edf0f3;
 }
 
 .row-two {
